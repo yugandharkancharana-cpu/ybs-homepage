@@ -37,3 +37,8 @@ JavaScript syntax checked. Desktop page and 390px iframe layout inspected in bro
 ## Deployment
 
 For ordinary static hosting, deploy the contents of `dist`. For an existing single-page app, integrate into its public root route rather than replacing its authentication or app shell. A separately hosted private Sites preview is intended for review; it does not modify ybusinessservices.com.
+
+
+## Internal UI design
+
+The matching internal workspaces are in [internal-ui](internal-ui/README.md): Client, Admin, Provider, and YBS Books. Open internal-ui/YBS-Internal-UI.html for the complete interactive design or run its preview server on port 5190. All data and actions are sample-only.
