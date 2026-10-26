@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+const original=fs.readFileSync(new URL('./reference/YBS_Books_Original.html',import.meta.url),'utf8');
+const css=fs.readFileSync(new URL('./enhancements.css',import.meta.url),'utf8');
+const js=fs.readFileSync(new URL('./enhancements.js',import.meta.url),'utf8');
+const html=original.replace('<title>YBS Books | Interactive product flow</title>','<title>YBS Books | Organization & invoice review</title>').replace('</head>','<style data-enhancements>'+css+'</style></head>').replace(" var start=location.hash.slice(1);",js+"\n var start=location.hash.slice(1);");
+fs.mkdirSync(new URL('./dist/',import.meta.url),{recursive:true});
+fs.writeFileSync(new URL('./dist/index.html',import.meta.url),html);
+const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
+new Function(script);
+console.log('Built self-contained YBS Books HTML; JavaScript syntax checked.');

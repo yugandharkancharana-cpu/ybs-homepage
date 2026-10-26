@@ -44,3 +44,9 @@ The navy, gold, ivory and sage visual system continues the existing homepage ide
 The matching client, admin, provider and Books UI remains in the repository's `internal-ui/` directory. It is a separate design prototype, not a linked public application in this website.
 
 `YBS-Landing-Page.html` at the repository root is the earlier single-page reference. The current complete website is `dist/`.
+
+## YBS Books prototype
+
+The updated standalone Books prototype is in [`ybs-books/`](ybs-books/). It includes organization setup, individual/business contacts, invoice copies, transport fields, editable source, the original reference, developer handoff and verification notes. Start with [`ybs-books/README.md`](ybs-books/README.md).
+
+Owner-only review: https://ybs-books-organization-invoicing-2026.candidkoala1026.chatgpt.site
