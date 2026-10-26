@@ -1,44 +1,46 @@
-# YBS public homepage
+# YBS complete services website
 
-A complete static implementation for The Y Business Services. Includes responsive desktop and mobile layouts, CSS 3D graphics, animation, and browser-local interactions. No framework, package installation, build, API keys, or backend is required.
+A 21-page public website for The Y Business Services. Technology and support lead the service offer, with the wider business services connected to the company story and platform.
 
-## Files and preview
+## Pages and coverage
 
-- `dist/index.html`: page content, SVG icons, and accessible structure.
-- `dist/styles.css`: design system, responsive layouts, 3D geometry, and motion.
-- `dist/app.js`: filters, service dialogs, workspace previews, navigation, and reveal behavior.
-- `preview.cjs`: optional local server. Run `node preview.cjs`, then open `http://127.0.0.1:5180`.
-- `YBS-Landing-Page.html`: the accompanying standalone file embeds CSS and JavaScript for easy sharing. Open it in a modern browser. Internet access loads Google Fonts; system fallbacks work offline.
+Home, searchable service directory, 14 individual service pages, About YBS, How we work, The platform, YBS Books, and a project brief builder.
+
+Services: mobile applications, websites, software engineering, IT and systems support, BPO, consulting, accounting and bookkeeping, GST and TDS support, company registration, compliance and trademarks, branding and digital marketing, HR and payroll, FSSAI and ISO preparation support, and startup funding readiness. Engineering means software engineering only.
+
+Each service page explains the purpose, use cases, scope areas, inputs for a useful brief, common questions, and connected services. No customer counts, testimonials, certifications, prices, guaranteed approvals, or service-level commitments have been invented.
+
+## Preview and build
+
+Run `node preview.cjs`, then open `http://127.0.0.1:5180`. The server supports directory index files. Do not open individual HTML files directly from disk: the site uses root-relative links for static hosting.
+
+Run `node site-builder.mjs` after editing `service-data.mjs`, `home-template.html`, or the builder. It generates all HTML pages and the service index. Styles and interactions are in `dist/styles.css`, `dist/full-site.css`, and `dist/site.js`. The build uses Node's standard library only.
+
+Deploy the complete contents of `dist` to a static host supporting nested directory indexes, including `/services/mobile-apps/`. Existing login and signup links point to ybusinessservices.com.
+
+## Functional interactions
+
+Service search and category filters, linked service and information pages, mobile navigation, native FAQ disclosures, homepage workspace preview states, and the brief builder. Links such as `/contact/?service=mobile-apps` preselect a service.
+
+The brief builder creates a local summary for copying or downloading. It does not send email, submit an enquiry, store client details, or create an account. The page explains this and directs users to save the summary and continue through their YBS account. Connect a production account workflow or approved enquiry destination before treating this as lead capture.
 
 ## Production integration
 
-1. Serve this public page at `/`. Remove the existing redirect from `/` to `/login`.
-2. Preserve the current application, authentication, `/login`, and `/signup` routes. All login and signup buttons currently use the absolute production URLs on `https://ybusinessservices.com`.
-3. For a React or other framework application, port the sections into components and scope the stylesheet as needed. Keep the layout, type sizes, spacing, breakpoints, animation geometry, and interactive states to reproduce the design. Replace global DOM listeners with the framework's lifecycle and state handling.
-4. Replace the text-based YBS monogram with the approved company logo when supplied. This is a proposed visual identity treatment, not a claim about the existing official logo.
-5. Confirm public service descriptions, Books launch status, and the production client panel's actual capabilities with the YBS team. Workspace numbers and activities are explicitly illustrative. The page does not contain customer testimonials, customer counts, prices, or guarantees.
-6. Books is presented as in development with selected access. The public page does not claim automatic access, free-for-everyone access, an active subscription, or working accounting integrations.
-7. Add approved legal and privacy destinations when provided. No placeholder legal URLs, fake contact forms, or invented contact details are included.
-8. Self-host DM Sans and Manrope if required by your privacy or performance policy. Use `font-display: swap`. The current version uses the Google Fonts stylesheet.
-9. Add the canonical URL, approved social preview asset, analytics/consent implementation, and favicon for production. Confirm metadata and sitemap in your existing application.
+- Serve this public site at the main domain root when ready, removing its existing login redirect while preserving the current client application and authentication routes.
+- Replace the proposed YBS monogram with the approved logo if supplied.
+- Confirm final service scopes, commercial terms, professional responsibilities and statutory-charge wording with YBS.
+- Books is in development with selected access and rollout details to be confirmed. Accounting services are separate from the software module.
+- Platform screenshots are labelled design previews. Sample records are not customer evidence or claims that every feature is live.
+- Add approved privacy and legal pages, business contact details and a real enquiry destination when available. No addresses, phone numbers, emails or legal text have been invented.
+- Add production canonical/social metadata, favicon, analytics consent and sitemap according to the live deployment. Fonts load via Google Fonts; self-host Manrope and DM Sans if required.
+- The mobile illustration and support-team scene are AI-generated conceptual visuals, not delivered client products or photos of YBS staff. Captions identify illustrative imagery.
 
-## Design and motion
+## Design
 
-Main colors: navy `#101d2a`, gold `#d6b977`, ivory `#f8f7f3`, ink `#152b37`, sage `#709b89`. Manrope headings with Georgia italic accents; DM Sans body. Main content width: 1240px. Responsive breakpoints: 1150, 900, and 600px.
+The navy, gold, ivory and sage visual system continues the existing homepage identity. CSS 3D and restrained motion support the story. Desktop and mobile layouts, reduced-motion support, labelled forms, filter states, focus treatments and status announcements are included. Run your production accessibility and cross-browser checks before launch.
 
-Hero: CSS perspective, a gold extruded YBS hub, elliptical orbital rings, floating service tiles, and optional pointer tilt. Books: CSS 3D cover, spine, paper edges, and a floating receipt. No paid assets, 3D libraries, model files, or video downloads.
+## Internal UI reference
 
-`prefers-reduced-motion` disables animation, reveal movement, pointer tilt, and smooth scrolling. Service filters support arrow keys, Home, and End; native dialogs support Escape, focus return, and backdrop dismissal. The mobile menu announces its expanded state. FAQ uses native `details` elements.
+The matching client, admin, provider and Books UI remains in the repository's `internal-ui/` directory. It is a separate design prototype, not a linked public application in this website.
 
-## Verified behavior
-
-JavaScript syntax checked. Desktop page and 390px iframe layout inspected in browser. Verified service filtering, service details, workspace preview changes, mobile menu, and Books details. This is a frontend handoff; no login, purchase, account creation, or accounting operation was performed. Browser inspection is not exhaustive cross-device testing; run the team's normal accessibility, browser, and production integration checks.
-
-## Deployment
-
-For ordinary static hosting, deploy the contents of `dist`. For an existing single-page app, integrate into its public root route rather than replacing its authentication or app shell. A separately hosted private Sites preview is intended for review; it does not modify ybusinessservices.com.
-
-
-## Internal UI design
-
-The matching internal workspaces are in [internal-ui](internal-ui/README.md): Client, Admin, Provider, and YBS Books. Open internal-ui/YBS-Internal-UI.html for the complete interactive design or run its preview server on port 5190. All data and actions are sample-only.
+`YBS-Landing-Page.html` at the repository root is the earlier single-page reference. The current complete website is `dist/`.
